@@ -61,7 +61,8 @@ $("#budget").addEventListener("change",updateProgress);
 btn.addEventListener("click",()=>{
   const goal=$("#goal").value,budget=$("#budget").value,r=recommendations[goal];
   const score={energy:92,fitness:96,daily:89,balance:94}[goal];
-  $("#heroScore").textContent=score;
+  $("#heroScore").textContent=score+"%";
+  $("#heroRecScore").textContent=score+"%";
   answer.innerHTML="<strong>✦ AI MATCH SAMPLE · "+score+"% MATCH</strong><br><b>"+r.title+"</b><br>"+r.copy+"<br><small>선택 예산: 월 "+budget+"만원 이하 · 실제 서비스에서는 검증된 제품 데이터와 개인 정보를 반영합니다.</small>";
   answer.animate([{opacity:0,transform:"translateY(12px) scale(.98)"},{opacity:1,transform:"translateY(0) scale(1)"}],{duration:450,easing:"cubic-bezier(.2,.8,.2,1)"});
 });
