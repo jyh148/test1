@@ -1,65 +1,7 @@
-<!doctype html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NutriMatch | AI 맞춤형 영양제 매칭</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header class="nav">
-    <div class="logo">NutriMatch</div>
-    <a class="nav-btn" href="#demo">무료로 시작하기</a>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="badge">AI 맞춤형 영양제 추천</div>
-      <h1>나에게 필요한 영양제,<br><span>AI가 쉽게 찾아드려요.</span></h1>
-      <p>건강 목표와 예산을 입력하면 나에게 맞는 영양제 조합을 간단하게 확인해보세요.</p>
-      <a class="cta" href="#demo">내 맞춤 영양제 찾기 →</a>
-      <p class="notice">※ 현재는 서비스 콘셉트를 보여주는 샘플 페이지입니다.</p>
-    </section>
-
-    <section class="features">
-      <article><div class="icon">🎯</div><h3>건강 목표</h3><p>원하는 건강 관리 목표를 선택하세요.</p></article>
-      <article><div class="icon">💰</div><h3>예산 설정</h3><p>부담 가능한 월 예산을 기준으로 살펴봅니다.</p></article>
-      <article><div class="icon">✨</div><h3>AI 매칭</h3><p>입력한 조건을 바탕으로 추천 예시를 확인합니다.</p></article>
-    </section>
-
-    <section id="demo" class="demo">
-      <div class="section-title">
-        <span>01</span>
-        <h2>간단하게 시작해보세요</h2>
-        <p>나의 목표와 예산을 선택하면 샘플 추천 결과를 보여드립니다.</p>
-      </div>
-
-      <form id="matchForm" class="form-card">
-        <label for="goal">나의 건강 목표</label>
-        <select id="goal" required>
-          <option value="">선택해주세요</option>
-          <option value="energy">활력·피로 관리</option>
-          <option value="exercise">운동·회복</option>
-          <option value="health">건강 관리</option>
-          <option value="daily">일상 영양 보충</option>
-        </select>
-
-        <label for="budget">월 예산</label>
-        <select id="budget" required>
-          <option value="">선택해주세요</option>
-          <option value="30000">3만원 이하</option>
-          <option value="50000">5만원 이하</option>
-          <option value="80000">8만원 이하</option>
-        </select>
-
-        <button type="submit">AI 추천 결과 보기</button>
-      </form>
-
-      <div id="result" class="result hidden"></div>
-    </section>
-  </main>
-
-  <footer>© 2026 NutriMatch. Concept landing page.</footer>
-  <script src="script.js"></script>
-</body>
-</html>
+<!doctype html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NutriMatch</title><link rel="stylesheet" href="style.css"></head><body>
+<nav><a class="brand" href="#">NUTRI<span>MATCH</span></a><a class="nav-link" href="#match">맞춤 추천 시작</a></nav>
+<header class="hero"><div class="hero-copy"><div class="eyebrow">AI NUTRITION MATCHING</div><h1>영양제,<br><em>아무거나</em> 먹지 마세요.</h1><p>내 건강 목표와 예산을 바탕으로<br>나에게 맞는 영양제 선택을 쉽게 시작해보세요.</p><a class="start" href="#match">내 맞춤 추천 시작 <b>→</b></a></div><div class="visual"><div class="orb"></div><div class="product-card card-a"><small>DAILY</small><strong>기본 영양</strong><span>AI MATCH 92%</span></div><div class="product-card card-b"><small>GOAL</small><strong>활력 관리</strong><span>AI MATCH 89%</span></div><div class="floating">✦ AI<br><b>MATCH</b></div></div></header>
+<section class="intro"><div><span class="eyebrow">WHY NUTRIMATCH</span><h2>고르는 시간을 줄이고<br>나에게 집중하세요.</h2></div><p>수많은 제품 사이에서 무엇을 골라야 할지 고민하는 사람들을 위해 만들었습니다. 복잡한 정보를 간단한 선택으로 바꿔드립니다.</p></section>
+<section class="steps"><article><i>01</i><h3>건강 목표 선택</h3><p>활력, 운동, 일상 건강 등 지금 원하는 목표를 선택하세요.</p></article><article><i>02</i><h3>예산 설정</h3><p>매달 부담 없이 관리할 수 있는 예산을 정하세요.</p></article><article><i>03</i><h3>AI 매칭</h3><p>입력한 조건을 바탕으로 샘플 추천 결과를 확인하세요.</p></article></section>
+<section id="match" class="matcher"><div class="match-head"><span class="eyebrow">TRY IT</span><h2>나에게 맞는 조합을<br>찾아볼까요?</h2></div><div class="panel"><label>나의 건강 목표<select id="goal"><option value="energy">⚡ 활력 · 피로 관리</option><option value="fitness">🏃 운동 · 회복</option><option value="daily">🌿 일상 건강 관리</option><option value="balance">✨ 기본 영양 보충</option></select></label><label>월 예산<select id="budget"><option>3만원 이하</option><option>5만원 이하</option><option>8만원 이하</option></select></label><button id="matchBtn">AI 매칭 결과 보기 →</button><div id="answer" class="answer hidden"></div></div></section>
+<footer><strong>NUTRIMATCH</strong><span>Concept Landing Page · 2026</span></footer><script src="script.js"></script></body></html>
