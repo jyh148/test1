@@ -73,3 +73,26 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     if(target){e.preventDefault();target.scrollIntoView({behavior:"smooth",block:"start"})}
   });
 });
+/* pill cursor interaction */
+(function(){
+  if(!window.matchMedia("(pointer:fine)").matches)return;
+  const pill=document.createElement("div");
+  pill.className="pill-cursor";
+  document.body.appendChild(pill);
+  let x=innerWidth/2,y=innerHeight/2,px=x,py=y;
+  addEventListener("pointermove",e=>{x=e.clientX;y=e.clientY});
+  function move(){px+=(x-px)*.22;py+=(y-py)*.22;pill.style.left=px+"px";pill.style.top=py+"px";requestAnimationFrame(move)} move();
+  document.querySelectorAll("a,button,select,.magnetic,.tilt-card").forEach(el=>{
+    el.addEventListener("mouseenter",()=>pill.classList.add("is-hover"));
+    el.addEventListener("mouseleave",()=>pill.classList.remove("is-hover"));
+  });
+  addEventListener("pointerdown",e=>{
+    if(e.button!==0)return;
+    pill.classList.remove("is-pressed");void pill.offsetWidth;pill.classList.add("is-pressed");
+    for(let i=0;i<4;i++){
+      const p=document.createElement("div");p.className="pill-pop";
+      p.style.left=e.clientX+"px";p.style.top=e.clientY+"px";p.style.setProperty("--angle",(i*90-45)+"deg");
+      document.body.appendChild(p);setTimeout(()=>p.remove(),700);
+    }
+  });
+})();
