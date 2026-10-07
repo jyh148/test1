@@ -8,64 +8,121 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+<div class="scroll-progress"></div>
+
 <div class="site">
   <nav class="nav">
-    <a class="logo" href="#">AI <span>Nutrition Match</span></a>
+    <a class="logo magnetic" href="#top">AI <span>Nutrition Match</span></a>
     <div class="nav-menu">
       <a href="#service">서비스</a><a href="#how">이용방법</a><a href="#match">추천받기</a>
     </div>
-    <a class="nav-cta" href="#match">추천 받아보기 <span>↗</span></a>
+    <a class="nav-cta magnetic" href="#match">추천 받아보기 <span>↗</span></a>
   </nav>
 
-  <main>
+  <main id="top">
     <section class="hero">
       <div class="hero-copy reveal">
         <div class="badge"><span></span> AI 기반 맞춤형 영양제 추천 · 비교 커머스</div>
-        <h1>나에게 맞는 영양제,<br><strong>이제 선택부터 다르게.</strong></h1>
+        <h1 class="hero-title">나에게 맞는 영양제,<br><strong>이제 선택부터 다르게.</strong></h1>
         <p>건강목표 × 생활습관 × 예산을 연결해<br class="desktop"> 필요한 영양소와 제품 후보를 압축하고,<br class="desktop"> 한눈에 비교할 수 있도록 도와드립니다.</p>
         <div class="hero-actions">
-          <a class="primary-btn" href="#match">AI 맞춤 추천 시작하기 <b>→</b></a>
+          <a class="primary-btn magnetic" href="#match">AI 맞춤 추천 시작하기 <b>→</b></a>
           <a class="secondary-btn" href="#service">서비스 알아보기</a>
         </div>
         <div class="trust"><span>✓</span> 복잡한 선택을 간단하게 &nbsp; <span>✓</span> 예산까지 고려</div>
       </div>
 
-      <div class="hero-art reveal">
+      <div class="hero-art" id="heroArt">
+        <div class="hero-grid"></div>
         <div class="glow"></div>
         <div class="orb orb-one"></div><div class="orb orb-two"></div>
-        <div class="match-card main-card">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="match-card main-card tilt-card">
           <div class="mini-label">AI MATCHING</div>
-          <div class="match-score"><strong>92</strong><span>% MATCH</span></div>
+          <div class="match-score"><strong id="heroScore">92</strong><span>% MATCH</span></div>
           <div class="score-line"><i></i></div>
           <p>당신의 생활패턴과<br><b>건강 목표</b>를 분석했어요.</p>
+          <div class="scan-line"></div>
         </div>
-        <div class="float-card goal-card"><span class="icon">⚡</span><div><small>MY GOAL</small><b>활력 관리</b></div></div>
-        <div class="float-card budget-card"><span class="icon">₩</span><div><small>MONTHLY BUDGET</small><b>5만원 이하</b></div></div>
+        <div class="float-card goal-card tilt-card"><span class="icon">⚡</span><div><small>MY GOAL</small><b>활력 관리</b></div></div>
+        <div class="float-card budget-card tilt-card"><span class="icon">₩</span><div><small>MONTHLY BUDGET</small><b>5만원 이하</b></div></div>
         <div class="pill">✦ PERSONALIZED</div>
+        <div class="data-chip chip-one">GOAL <b>+24%</b></div>
+        <div class="data-chip chip-two">BUDGET <b>OK</b></div>
       </div>
+      <div class="scroll-cue"><span></span> SCROLL TO EXPLORE</div>
     </section>
 
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>HEALTH GOAL</span><b>✦</b><span>LIFESTYLE</span><b>✦</b><span>BUDGET</span><b>✦</b><span>AI MATCHING</span><b>✦</b>
+        <span>HEALTH GOAL</span><b>✦</b><span>LIFESTYLE</span><b>✦</b><span>BUDGET</span><b>✦</b><span>AI MATCHING</span><b>✦</b>
+      </div>
+    </div>
+
     <section id="service" class="intro section reveal">
-      <div><div class="eyebrow">WHY NUTRITION MATCH</div><h2>영양제 선택,<br><em>더 이상 어렵지 않게.</em></h2></div>
+      <div>
+        <div class="eyebrow">WHY NUTRITION MATCH</div>
+        <h2>영양제 선택,<br><em>더 이상 어렵지 않게.</em></h2>
+      </div>
       <p>비슷해 보이는 수많은 제품을 일일이 비교하지 않아도 됩니다.<br>내가 원하는 목표와 생활패턴, 예산을 기준으로 선택의 범위를 줄여드립니다.</p>
     </section>
 
     <section id="how" class="how section">
-      <div class="section-head reveal"><div class="eyebrow">HOW IT WORKS</div><h2>3번의 선택으로<br>나만의 기준을 만드세요.</h2></div>
+      <div class="section-head reveal">
+        <div class="eyebrow">HOW IT WORKS</div>
+        <h2>스크롤하며<br><em>나만의 기준</em>을 만드세요.</h2>
+      </div>
       <div class="steps">
-        <article class="step reveal"><div class="step-no">01</div><div class="step-icon">◎</div><h3>건강 목표</h3><p>활력, 운동·회복, 일상 건강 등 지금 가장 신경 쓰이는 목표를 선택하세요.</p><span>GOAL</span></article>
-        <article class="step reveal"><div class="step-no">02</div><div class="step-icon">₩</div><h3>월 예산</h3><p>매달 부담 없이 관리할 수 있는 예산 범위를 정하세요.</p><span>BUDGET</span></article>
-        <article class="step reveal"><div class="step-no">03</div><div class="step-icon">✦</div><h3>AI 매칭</h3><p>선택한 조건을 바탕으로 비교하기 쉬운 추천 후보를 확인하세요.</p><span>MATCH</span></article>
+        <article class="step reveal tilt-card" data-step="01">
+          <div class="step-no">01</div><div class="step-icon">◎</div><h3>건강 목표</h3>
+          <p>활력, 운동·회복, 일상 건강 등 지금 가장 신경 쓰이는 목표를 선택하세요.</p><span>GOAL</span><div class="step-arrow">↗</div>
+        </article>
+        <article class="step reveal tilt-card" data-step="02">
+          <div class="step-no">02</div><div class="step-icon">₩</div><h3>월 예산</h3>
+          <p>매달 부담 없이 관리할 수 있는 예산 범위를 정하세요.</p><span>BUDGET</span><div class="step-arrow">↗</div>
+        </article>
+        <article class="step reveal tilt-card" data-step="03">
+          <div class="step-no">03</div><div class="step-icon">✦</div><h3>AI 매칭</h3>
+          <p>선택한 조건을 바탕으로 비교하기 쉬운 추천 후보를 확인하세요.</p><span>MATCH</span><div class="step-arrow">↗</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="manifesto">
+      <div class="manifesto-bg"></div>
+      <div class="manifesto-inner reveal">
+        <div class="eyebrow">LESS SEARCH · MORE MATCH</div>
+        <h2>수많은 제품을<br><span>찾는 시간</span>보다<br><em>나에게 맞는 기준</em>에 집중하세요.</h2>
+        <div class="manifesto-line"></div>
       </div>
     </section>
 
     <section id="match" class="matcher section">
-      <div class="match-copy reveal"><div class="eyebrow">TRY AI MATCH</div><h2>지금,<br><em>나에게 맞는 기준</em>을<br>찾아보세요.</h2><p>아래에서 간단한 조건을 선택하면 샘플 매칭 결과를 확인할 수 있어요.</p></div>
+      <div class="match-copy reveal">
+        <div class="eyebrow">TRY AI MATCH</div>
+        <h2>지금,<br><em>나에게 맞는 기준</em>을<br>찾아보세요.</h2>
+        <p>아래에서 간단한 조건을 선택하면 샘플 매칭 결과를 확인할 수 있어요.</p>
+        <div class="match-stats"><span><b>3</b> STEP</span><span><b>1</b> GOAL</span><span><b>∞</b> POSSIBILITY</span></div>
+      </div>
+
       <div class="matcher-panel reveal">
         <div class="panel-top"><span>AI NUTRITION MATCH</span><i>● LIVE SAMPLE</i></div>
-        <label>01. 나의 건강 목표<select id="goal"><option value="energy">⚡ 활력 · 피로 관리</option><option value="fitness">🏃 운동 · 회복</option><option value="daily">🌿 일상 건강 관리</option><option value="balance">✨ 기본 영양 보충</option></select></label>
-        <label>02. 월 예산<select id="budget"><option value="3">3만원 이하</option><option value="5">5만원 이하</option><option value="8">8만원 이하</option></select></label>
-        <button id="matchBtn">내 맞춤 추천 결과 보기 <span>→</span></button>
+        <div class="panel-progress"><i id="panelProgress"></i></div>
+        <label>01. 나의 건강 목표
+          <select id="goal">
+            <option value="energy">⚡ 활력 · 피로 관리</option>
+            <option value="fitness">🏃 운동 · 회복</option>
+            <option value="daily">🌿 일상 건강 관리</option>
+            <option value="balance">✨ 기본 영양 보충</option>
+          </select>
+        </label>
+        <label>02. 월 예산
+          <select id="budget"><option value="3">3만원 이하</option><option value="5" selected>5만원 이하</option><option value="8">8만원 이하</option></select>
+        </label>
+        <button id="matchBtn" class="magnetic">내 맞춤 추천 결과 보기 <span>→</span></button>
         <div id="answer" class="answer"></div>
       </div>
     </section>
