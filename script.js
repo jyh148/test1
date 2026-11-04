@@ -53,19 +53,45 @@ const observer=new IntersectionObserver(entries=>{
 },{threshold:.12});
 $$(".reveal").forEach((el,i)=>{el.style.transitionDelay=(i%3)*80+"ms";observer.observe(el)});
 
-const btn=$("#matchBtn"),answer=$("#answer"),progressPanel=$("#panelProgress");
-function updateProgress(){progressPanel.style.width="45%";setTimeout(()=>progressPanel.style.width="100%",120)}
-$("#goal").addEventListener("change",updateProgress);
-$("#budget").addEventListener("change",updateProgress);
+const commentForm=$("#commentForm");
+if(commentForm){
+  const commentInput=$("#commentInput");
+  const commentCount=$("#commentCount");
+  const commentStatus=$("#commentStatus");
+  const commentFrame=$("#commentResponse");
+  const commentSubmit=$("#commentSubmit");
+  let waitingForResponse=false;
 
-btn.addEventListener("click",()=>{
-  const goal=$("#goal").value,budget=$("#budget").value,r=recommendations[goal];
-  const score={energy:92,fitness:96,daily:89,balance:94}[goal];
-  $("#heroScore").textContent=score+"%";
-  $("#heroRecScore").textContent=score+"%";
-  answer.innerHTML="<strong>✦ AI MATCH SAMPLE · "+score+"% MATCH</strong><br><b>"+r.title+"</b><br>"+r.copy+"<br><small>선택 예산: 월 "+budget+"만원 이하 · 실제 서비스에서는 검증된 제품 데이터와 개인 정보를 반영합니다.</small>";
-  answer.animate([{opacity:0,transform:"translateY(12px) scale(.98)"},{opacity:1,transform:"translateY(0) scale(1)"}],{duration:450,easing:"cubic-bezier(.2,.8,.2,1)"});
-});
+  commentInput.addEventListener("input",()=>{
+    commentCount.textContent=commentInput.value.length+" / 200";
+  });
+  commentForm.querySelector('input[name="pageUrl"]').value=window.location.href;
+
+  commentForm.addEventListener("submit",()=>{
+    const value=commentInput.value.trim();
+    if(!value){
+      commentStatus.textContent="의견을 한 글자 이상 입력해주세요.";
+      commentInput.focus();
+      return;
+    }
+    commentInput.value=value;
+    commentForm.querySelector('input[name="pageUrl"]').value=window.location.href;
+    waitingForResponse=true;
+    commentSubmit.disabled=true;
+    commentSubmit.textContent="전송 중...";
+    commentStatus.textContent="의견을 전송하고 있습니다.";
+  });
+
+  commentFrame.addEventListener("load",()=>{
+    if(!waitingForResponse)return;
+    waitingForResponse=false;
+    commentStatus.textContent="전송 요청을 보냈습니다. 스프레드시트에서 등록 여부를 확인해주세요.";
+    commentForm.reset();
+    commentCount.textContent="0 / 200";
+    commentSubmit.disabled=false;
+    commentSubmit.innerHTML='의견 보내기 <span>→</span>';
+  });
+}
 
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener("click",e=>{
